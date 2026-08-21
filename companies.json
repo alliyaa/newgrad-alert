@@ -1,22 +1,14 @@
 [
-  {"name": "Hudson River Trading", "slug": "hudson-river-trading"},
-  {"name": "Optiver", "slug": "optiver"},
-  {"name": "The D. E. Shaw Group", "slug": "the-d-e-shaw-group"},
-  {"name": "Anthropic", "slug": "anthropic"},
-  {"name": "Harvey", "slug": "harvey"},
-  {"name": "Jane Street", "slug": "jane-street"},
-  {"name": "IMC", "slug": "imc"},
-  {"name": "CoreWeave", "slug": "coreweave"},
-  {"name": "Two Sigma", "slug": "two-sigma"},
-  {"name": "Airtable", "slug": "airtable"},
-  {"name": "Skydio", "slug": "skydio"},
-  {"name": "StubHub", "slug": "stubhub"},
-  {"name": "Databricks", "slug": "databricks"},
-  {"name": "OpenAI", "slug": "openai"},
-  {"name": "Bridgewater Associates", "slug": "bridgewater-associates"},
-  {"name": "Plaid", "slug": "plaid"},
-  {"name": "Scale AI", "slug": "scale-ai"},
-  {"name": "ServiceTitan", "slug": "servicetitan"},
-  {"name": "Millennium", "slug": "millennium"},
-  {"name": "Akuna Capital", "slug": "akuna-capital"}
+  {
+    "name": "1ST\nHudson River Trading\n$410,000",
+    "slug": "hudson-river-trading"
+  },
+  {
+    "name": "2ND\nOptiver\n$393,750",
+    "slug": "optiver"
+  },
+  {
+    "name": "3RD\nThe D. E. Shaw Group\n$375,000",
+    "slug": "the-d-e-shaw-group"
+  }
 ]
