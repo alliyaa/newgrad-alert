@@ -23,7 +23,7 @@ LEADERBOARD_URL = (
 TARGET_COUNT = 100
 OUTPUT_FILE = Path(__file__).parent / "companies.json"
 
-COMPANY_LINK_RE = re.compile(r"^/company/([a-z0-9\-]+)/salaries/?$")
+COMPANY_LINK_RE = re.compile(r"^/company/([a-z0-9\-]+)/salaries/?")
 
 
 def slug_to_name(slug: str) -> str:
@@ -45,8 +45,11 @@ def collect_companies(page, debug=False) -> list[dict]:
                 continue
             slug = m.group(1)
             if slug not in seen:
-                text = (a.get("text") or "").strip()
-                seen[slug] = text if text else slug_to_name(slug)
+                # Some cards (the top-3 highlighted ones) cram rank + comp
+                # figures into the same link text as the company name, so
+                # we don't trust scraped text for the name -- derive a clean
+                # one from the slug instead.
+                seen[slug] = slug_to_name(slug)
 
     harvest()
     if debug:

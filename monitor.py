@@ -107,7 +107,11 @@ def scrape_company_jobs(page, slug: str, debug=False) -> list[dict]:
         job_id = m.group(1)
         if job_id in found_ids:
             continue
-        title = (a.get("text") or "").strip()
+        raw_text = (a.get("text") or "").strip()
+        # The link wraps the whole job card (title, "posted X ago", location,
+        # salary all in one block). The title is reliably the first line --
+        # everything after it is metadata we don't need.
+        title = raw_text.split("\n")[0].strip() if raw_text else ""
         if not title or not looks_like_new_grad(title):
             continue
         found_ids.add(job_id)
