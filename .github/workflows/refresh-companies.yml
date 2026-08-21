@@ -1,0 +1,35 @@
+name: Refresh top 100 company list
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # every Monday 6am UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Refresh companies.json
+        run: python get_companies.py
+
+      - name: Commit updated company list
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add companies.json
+          git diff --quiet --cached || git commit -m "Refresh top 100 companies [skip ci]"
+          git push
