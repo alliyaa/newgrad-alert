@@ -4,11 +4,11 @@
     "slug": "hudson-river-trading"
   },
   {
-    "name": "Harvey",
-    "slug": "harvey"
-  },
-  {
     "name": "The D E Shaw Group",
     "slug": "the-d-e-shaw-group"
+  },
+  {
+    "name": "Harvey",
+    "slug": "harvey"
   }
 ]
